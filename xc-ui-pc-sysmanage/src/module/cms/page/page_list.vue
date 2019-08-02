@@ -16,12 +16,12 @@
         <el-button type="primary" size="small" ></el-button>
       </router-link>
 
-<!--      <router-link :to="{path:'/cms/page/add',query:{
+      <router-link :to="{path:'/cms/page/add',query:{
         page:this.params.page,
         siteId:this.params.siteId
       }}">
         <el-button  type="primary" size="small">新增页面</el-button>
-      </router-link>-->
+      </router-link>
     </el-form>
     <el-table
       :data="list"
@@ -87,6 +87,11 @@
         this.params.page = page;
         this.query()
       }
+    },
+    created(){//vue实例还没渲染完成执行
+      //去除路由中的参数，赋值给数据对象
+      this.params.page = Number.parseInt(this.$route.query.page || 1) //||w前者为假取1
+      this.params.siteId = this.$route.query.siteId || ''
     },
     mounted(){
       //当DOM元素渲染完成后调用query
