@@ -12,10 +12,6 @@
       页面别名：<el-input v-model="params.pageAliase"  style="width: 100px"></el-input>
     <!--编写页面静态部分，即view部分-->
     <el-button type="primary" size="small" v-on:click="query">查询</el-button>
-      <router-link>
-        <el-button type="primary" size="small" ></el-button>
-      </router-link>
-
       <router-link :to="{path:'/cms/page/add',query:{
         page:this.params.page,
         siteId:this.params.siteId
